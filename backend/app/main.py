@@ -8,7 +8,23 @@ from app.models import *  # Import all models to ensure they are registered with
 # Create all tables in the database
 Base.metadata.create_all(bind=engine)
 
-from app.routers import auth, path, lesson, exercise, profile, leaderboard, hearts, achievements, settings, quests, shop, legendary
+# Import routers
+from app.routers import (
+    auth,
+    path,
+    lesson,
+    exercise,
+    profile,
+    leaderboard,
+    hearts,
+    achievements,
+    quests,
+    shop,
+    legendary,
+)
+
+# Import routers that have conflicting names with config variables
+from app.routers import settings as settings_router
 from app.routers import guidebook as guidebook_router
 
 app = FastAPI(title="Duolingo Clone API")
@@ -22,6 +38,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register routers
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
 app.include_router(path.router, prefix="/api/v1", tags=["path"])
 app.include_router(lesson.router, prefix="/api/v1", tags=["lesson"])
@@ -30,11 +47,12 @@ app.include_router(profile.router, prefix="/api/v1", tags=["profile"])
 app.include_router(leaderboard.router, prefix="/api/v1", tags=["leaderboard"])
 app.include_router(hearts.router, prefix="/api/v1", tags=["hearts"])
 app.include_router(achievements.router, prefix="/api/v1", tags=["achievements"])
-app.include_router(settings.router, prefix="/api/v1", tags=["settings"])
+app.include_router(settings_router.router, prefix="/api/v1", tags=["settings"])
 app.include_router(quests.router, prefix="/api/v1", tags=["quests"])
 app.include_router(shop.router, prefix="/api/v1", tags=["shop"])
 app.include_router(guidebook_router.router, prefix="/api/v1", tags=["guidebook"])
 app.include_router(legendary.router, prefix="/api/v1", tags=["legendary"])
+
 
 @app.get("/")
 def root():
