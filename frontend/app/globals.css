@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    background-color: #131f24;
+    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  * { box-sizing: border-box; }
+}
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Duolingo card */
+.duo-card {
+  background-color: #1f3239;
+  border: 1px solid #2a4255;
+  border-radius: 1rem;
+}
+
+/* Green primary CTA button */
+.btn-duo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #58CC02;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 0 #46A302;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: filter 0.1s, transform 0.1s, box-shadow 0.1s;
+}
+.btn-duo:hover:not(:disabled) { filter: brightness(1.1); transform: scale(1.02); box-shadow: 0 5px 0 #46A302; }
+.btn-duo:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 0px 0 #46A302; }
+.btn-duo:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Outlined button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #1CB0F6;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 1rem;
+  border: 2px solid #2a4255;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.1s, transform 0.1s;
+}
+.btn-outline:hover:not(:disabled) { background-color: #1f3239; transform: scale(1.02); }
+.btn-outline:active:not(:disabled) { transform: scale(0.97); }
+.btn-outline:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Danger button */
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF4B4B;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 0 #EA2B2B;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: filter 0.1s, transform 0.1s, box-shadow 0.1s;
+}
+.btn-danger:hover:not(:disabled) { filter: brightness(1.1); transform: scale(1.02); box-shadow: 0 5px 0 #EA2B2B; }
+.btn-danger:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 0px 0 #EA2B2B; }
+.btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Progress bar fill */
+.progress-bar-fill {
+  background-color: #FFD900;
+  height: 100%;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s ease-out;
+}
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 9999px;
+}
