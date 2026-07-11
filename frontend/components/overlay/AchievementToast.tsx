@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
 
 interface Achievement {
-  id: int;
+  id: number;
   title: string;
   description: string;
   icon: string;
-  xp_reward: int;
-  gem_reward: int;
+  xp_reward: number;
+  gem_reward: number;
 }
 
 interface AchievementToastProps {
