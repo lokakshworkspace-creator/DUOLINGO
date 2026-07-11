@@ -57,3 +57,9 @@ app.include_router(legendary.router, prefix="/api/v1", tags=["legendary"])
 @app.get("/")
 def root():
     return {"message": "Duolingo Clone API is running"}
+
+from app.seed.seed_data import seed
+
+@app.on_event("startup")
+async def startup():
+    seed()
